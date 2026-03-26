@@ -9,7 +9,15 @@ on:
             - 'chore/**'
 
 jobs:
-    job-1:
+    lint-job:
         runs-on: ubuntu-latest
         steps:
             - run: echo "Hello World"
+            - uses: actions/checkout@v6 # ดึง code มาที่ action เพื่อทำอะไรบางอย่าง
+            - uses: actions/setup-node@v6
+              with:
+                node-version: '24.x'
+                cache: 'npm'
+            - run: node -v
+            #- run: npm install
+            #- run: npm run lint
