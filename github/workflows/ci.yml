@@ -1,0 +1,15 @@
+name: Frontend Workshop Demo
+
+on:
+    push:
+        branches:
+            - main # ปกติไม่ push main
+            - 'feature/**'
+            - 'bugfix/**'
+            - 'chore/**'
+
+jobs:
+    job-1:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello World"
