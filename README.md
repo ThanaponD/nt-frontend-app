@@ -71,3 +71,12 @@ export default defineConfig([
   },
 ])
 ```
+
+
+
+
+
+ต้องการใช้ npm run lint (ตรวจสอบ error อัตโนมัติ)
+- ลง node js
+- npm install
+- npm run lint
