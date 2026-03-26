@@ -19,5 +19,5 @@ jobs:
                 node-version: '24.x'
                 cache: 'npm'
             - run: node -v
-            #- run: npm install
-            #- run: npm run lint
+            - run: npm ci # เร็วกว่า install - clean install
+            - run: npm run lint
