@@ -24,9 +24,9 @@ jobs:
         needs: build-image-and-push-job # sequential jobs
         environment: production
         env:
-            CONTAINER_NAME: ${{ github.actor }}
-            SERVER_PORT: 6970 #HTTP://45.32.108.242:6970
-            DOCKER_IMAGE_URL: 'ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ github.ref_name }}'       
+            CONTAINER_NAME: ${{ github.actor }}  # docker pull ghcr.io/thanapond/nt-frontend-app:4.0.1
+            SERVER_PORT: 6970 #HTTP://45.32.108.242:6970  
+            DOCKER_IMAGE_URL: 'ghcr.io/thanapond/${{ github.event.repository.name }}:${{ github.ref_name }}'       
         steps:
             - name: Executing remote ssh using password to production server
               uses: appleboy/ssh-action@v1.2.5
@@ -38,7 +38,7 @@ jobs:
                 script: | # เข้าเครื่อง server
                   docker -v
                   docker logout ghcr.io
-                  docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}
+                  docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io/thanapond/${{ github.event.repository.name }}
                   docker pull ${{ env.DOCKER_IMAGE_URL }}   
                   docker rm -f ${{ env.CONTAINER_NAME }} | true
                   docker run --restart=always -d --name ${{ env.CONTAINER_NAME}} -p ${{ env.SERVER_PORT}}:80 ${{ env.DOCKER_IMAGE_URL }}
