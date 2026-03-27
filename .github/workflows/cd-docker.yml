@@ -25,7 +25,7 @@ jobs:
         environment: production
         env:
             CONTAINER_NAME: ${{ github.actor }}  # docker pull ghcr.io/thanapond/nt-frontend-app:4.0.1
-            SERVER_PORT: 6970 #HTTP://45.32.108.242:6970  
+            SERVER_PORT: 6971 #HTTP://45.32.108.242:6971  
             DOCKER_IMAGE_URL: 'ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ github.ref_name }}'       
         steps:
             - name: Executing remote ssh using password to production server
