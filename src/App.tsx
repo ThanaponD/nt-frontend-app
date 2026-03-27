@@ -18,7 +18,7 @@ function App() {
         <div>
           <h1>Get started</h1>
           <p>
-            GIT COURSE
+            GIT COURSE v2.0.0
           </p>
         </div>
         <button
