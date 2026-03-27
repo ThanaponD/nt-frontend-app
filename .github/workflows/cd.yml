@@ -37,7 +37,7 @@ jobs:
             - name: Download dist folder artifact
               uses: actions/download-artifact@v7
               with:
-                name: dist-prodution
+                name: dist-production
                 path: dist
             - run: ls dist
             - uses: actions/checkout@v6 
